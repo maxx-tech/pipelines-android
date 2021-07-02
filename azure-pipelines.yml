@@ -22,6 +22,9 @@ steps:
     tasks: 'assembleDebug test'
   displayName: gradlew assembleDebug test
 
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk'
 - task: CopyFiles@2
   inputs:
     contents: '**/*.apk'
@@ -35,6 +38,3 @@ steps:
     artifactType: 'container'
   displayName: Publish artifacts 
 
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk'
